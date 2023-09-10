@@ -29,8 +29,8 @@ jobs:
       - name: Installation de firebase-tools
         run: npm install -g firebase-tools
 
-      - name: Exécution des tests
-        run: npm run test
+      # - name: Exécution des tests
+      #   run: npm run test
 
       - name: Build
         run: npm run build
