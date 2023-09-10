@@ -16,10 +16,10 @@ jobs:
 
     steps:
       - name: Checkout du code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Configuration de Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
 
@@ -36,7 +36,7 @@ jobs:
         run: npm run build
 
       - name: Archivage du Build
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: build
           path: build
@@ -48,10 +48,10 @@ jobs:
 
     steps:
       - name: Checkout du code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Téléchargement du Build
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: build
           path: build
