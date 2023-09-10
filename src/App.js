@@ -35,7 +35,6 @@ function App() {
             <Routes>
               <Route path="/" element={<Team />} />
               <Route path="/dasboard" element={<Dashboard />} />
-              <Route path="/contacts" element={<Contacts />} />
              
             </Routes>
           </main>
