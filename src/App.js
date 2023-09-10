@@ -33,8 +33,8 @@ function App() {
           <main className="content">
             <Topbar setIsSidebar={setIsSidebar} />
             <Routes>
-              <Route path="/team" element={<Team />} />
-              <Route path="/" element={<Dashboard />} />
+              <Route path="/" element={<Team />} />
+              <Route path="/dasboard" element={<Dashboard />} />
               {/* <Route path="/contacts" element={<Contacts />} /> */}
               {/* <Route path="/invoices" element={<Invoices />} /> */}
               {/* <Route path="/form" element={<Form />} /> */}
