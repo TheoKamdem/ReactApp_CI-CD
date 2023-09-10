@@ -1,66 +1,64 @@
 name: Firebase CI
 
-on: 
+on:
   push:
-    branches:master
+    branches:
+      - master
 
 jobs:
-  build:  
-
-    run-on: ubuntu-latest    
+  build:
+    name: Build
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version:[16.x]
+        node-version: [16.x]
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Use Node.js  version ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-       with:
+      - name: Checkout du code
+        uses: actions/checkout@v2
+
+      - name: Configuration de Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
           node-version: ${{ matrix.node-version }}
 
-    - run: npm i
-    - run: npm i -g firebase-tools
-    - run: npm run test
-    - run: npm run build
-    - name: Archive Build
-      uses: actions/upload-artifact@v3
-      with:
-        name: build
-        path: build
-  deploy:
-    name: Deploy
-    needs:  build
-    run-on: ubuntu-latest
-    steps:
-      -uses:  actions/checkout@v4
-      -name:  Download Build
-       uses:  actions/download-artifac@v2
-       with:
+      - name: Installation des dépendances
+        run: npm install
+
+      - name: Installation de firebase-tools
+        run: npm install -g firebase-tools
+
+      - name: Exécution des tests
+        run: npm run test
+
+      - name: Build
+        run: npm run build
+
+      - name: Archivage du Build
+        uses: actions/upload-artifact@v2
+        with:
           name: build
           path: build
-      - name: Deploy to Firebase
+
+  deploy:
+    name: Déploiement
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout du code
+        uses: actions/checkout@v2
+
+      - name: Téléchargement du Build
+        uses: actions/download-artifact@v2
+        with:
+          name: build
+          path: build
+
+      - name: Déploiement vers Firebase
         uses: w9jds/firebase-action@master
         with:
           args: deploy --only hosting
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
