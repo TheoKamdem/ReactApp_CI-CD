@@ -1,15 +1,15 @@
-import { Box, Typography, useTheme, Modal, ModalTitle, TextField, Button } from '@mui/material';
+import { Box, Typography, useTheme, Modal, TextField, Button } from '@mui/material';
 import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
-
-import { mockDataTeam } from "../../data/mockData";
-import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
-import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
-import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
+ // eslint-disable-next-line no-unused-vars
+// import { mockDataTeam } from "../../data/mockData";
+// import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
+// import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
+// import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
 import Header from "../../components/Header";
 import React, { useState, useEffect } from "react";
 // import { Button,  } from "react-bootstrap";
-import ReactModal from 'react-modal';
+// import ReactModal from 'react-modal';
 
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
@@ -18,8 +18,8 @@ import AddIcon from '@mui/icons-material/Add';
 const Team = () => {
 
   const [data, setData] = useState([]);
-  const [RowData, SetRowData] = useState([]);
-  const [id, setId] = useState("");
+  // const [RowData, SetRowData] = useState([]);
+  // const [id, setId] = useState("");
 
   const [openModal, setOpenModal] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
@@ -49,19 +49,25 @@ const Team = () => {
 
 
   //FOr Add New Data Model
+   // eslint-disable-next-line no-unused-vars
   const [ViewPost, SetPostShow] = useState(false);
   const handlePostShow = () => {
     SetPostShow(true);
   };
-  const hanldePostClose = () => {
-    SetPostShow(false);
-  };
+  //  // eslint-disable-next-line no-unused-vars
+  // const hanldePostClose = () => {
+  //   SetPostShow(false);
+  // };
 
   //FOr Edit Model
+   // eslint-disable-next-line no-unused-vars
   const [ViewEdit, SetEditShow] = useState(false);
-  const handleEditShow = () => {
-    SetEditShow(true);
-  };
+   // eslint-disable-next-line no-unused-vars
+
+  // const handleEditShow = () => {
+  //   SetEditShow(true);
+  // };
+   // eslint-disable-next-line no-unused-vars
   const hanldeEditClose = () => {
     SetEditShow(false);
   };
@@ -71,10 +77,10 @@ const Team = () => {
   };
 
 
-  const handleEdit = (id) => {
-    // Add edit functionality here
-    console.log(`Editing item with ID ${id}`);
-  };
+  // const handleEdit = (id) => {
+  //   // Add edit functionality here
+  //   console.log(`Editing item with ID ${id}`);
+  // };
 
 
   const handleView = (id) => {
@@ -89,12 +95,14 @@ const Team = () => {
 
 
   // Fonction pour fermer le formulaire modal
-  const closeModal = () => {
-    setOpenModal(false);
-  };
+   // eslint-disable-next-line no-unused-vars
+  // const closeModal = () => {
+  //   setOpenModal(false);
+  // };
 
-
+ // eslint-disable-next-line no-unused-vars
   const [selectedUser, setSelectedUser] = useState(null);
+
   const [modifiedUser, setModifiedUser] = useState({
     name: '',
     // username: '',
@@ -102,7 +110,7 @@ const Team = () => {
     // phone: '',
     // website: ''
   });
-
+ // eslint-disable-next-line no-unused-vars
   const handleInputChange = (event) => {
     setModifiedUser({
       ...modifiedUser,
